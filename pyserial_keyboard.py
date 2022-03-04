@@ -77,47 +77,52 @@ def jointjogProtocol(Instruction):
     serialPort.write(bytes.fromhex(CheckSumCal(sum)[0]))
     serialPort.write(bytes.fromhex(CheckSumCal(sum)[1]))
 def KeyPressSerial():
-    x=keyboard.read_key()
-    if x == "r": #72
+  
+    if keyboard.is_pressed('r'): #72
         print('r')
         jointjogProtocol('72')
         acknowledge()
         #serialPort.write(bytes.fromhex("01"))
-    elif x == "f": #66
+    elif keyboard.is_pressed('f'): #66
         print('f')
         jointjogProtocol('66')
         acknowledge()
         # serialPort.write(bytes.fromhex("02"))
-    elif x == "t": #74
+    elif keyboard.is_pressed('t'): #74
         print('t')
         jointjogProtocol('74')
         acknowledge()
         # serialPort.write(bytes.fromhex("03")) 
-    elif x == "g": #67
+    elif keyboard.is_pressed('g'): #67
         print('g')
         jointjogProtocol('67')
         acknowledge()
         # serialPort.write(bytes.fromhex("04"))
-    elif x == "y": #79
+    elif keyboard.is_pressed('y'): #79
         print('y')
         jointjogProtocol('79')
         acknowledge()
         # serialPort.write(bytes.fromhex("05")) 
-    elif x == "h": #41
+    elif keyboard.is_pressed('h'): #41
         print('h')
         jointjogProtocol('41')
         acknowledge()
         # serialPort.write(bytes.fromhex("06"))
-    elif x == "u": #75
+    elif keyboard.is_pressed('u'): #75
         print('u')
         jointjogProtocol('75')
         acknowledge()
         # serialPort.write(bytes.fromhex("07"))  
-    elif x == "j": #6A
+    elif keyboard.is_pressed('j'): #6A
         print('j')
         jointjogProtocol('6A')
         acknowledge()
-        # serialPort.write(bytes.fromhex("08"))          
+        # serialPort.write(bytes.fromhex("08"))   
+    else: #7A
+        print('z')
+        jointjogProtocol('7A')
+        acknowledge()
+        # serialPort.write(bytes.fromhex("08"))         
 
 while True:
     KeyPressSerial()
